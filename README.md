@@ -35,3 +35,8 @@ Then open `http://localhost:8000`.
 
 This is not engineering-certified CFD. It is a product scaffold and heuristic simulator designed for iteration, validation and experimentation.
 
+
+
+## Pass 2 upgrade
+
+This build includes Surface Cell Engine v1. Each shirt is split into 864 3D surface cells, making perforation placement, air gap, airflow, moisture and thermal values spatial rather than only zone averaged. See `docs/PASS_2_SURFACE_CELL_ENGINE.md`.
