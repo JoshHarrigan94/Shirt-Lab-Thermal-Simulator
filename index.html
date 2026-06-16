@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ShirtLab Thermal Simulator</title>
+  <meta name="description" content="3D sportswear thermal, airflow and moisture simulation prototype for GitHub Pages." />
+  <link rel="stylesheet" href="./src/styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">ShirtLab</p>
+      <h1>3D Thermal Clothing Simulator</h1>
+      <p class="subhead">Compare fabric, fit, perforation and weather trade-offs for athletic shirts.</p>
+    </div>
+    <div class="top-actions">
+      <button id="runBtn" class="primary">Run simulation</button>
+      <button id="resetBtn">Reset</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="viewer-panel">
+      <div id="scene"></div>
+      <div class="view-tabs">
+        <button class="active" data-view="thermal">Thermal</button>
+        <button data-view="airflow">Airflow</button>
+        <button data-view="moisture">Moisture</button>
+        <button data-view="perforation">Perforation</button>
+      </div>
+      <div class="legend" id="legend"></div>
+    </section>
+
+    <aside class="control-panel">
+      <section class="card">
+        <h2>Scenario</h2>
+        <label>Activity
+          <select id="activity"></select>
+        </label>
+        <label>Effort level <span id="effortValue"></span>
+          <input id="effort" type="range" min="1" max="10" step="1" />
+        </label>
+        <label>Sweat rate <span id="sweatValue"></span>
+          <input id="sweat" type="range" min="1" max="10" step="1" />
+        </label>
+      </section>
+
+      <section class="card">
+        <h2>Environment</h2>
+        <label>Air temp °C <span id="tempValue"></span>
+          <input id="temp" type="range" min="0" max="40" step="1" />
+        </label>
+        <label>Humidity % <span id="humidityValue"></span>
+          <input id="humidity" type="range" min="10" max="100" step="5" />
+        </label>
+        <label>Wind speed km/h <span id="windValue"></span>
+          <input id="wind" type="range" min="0" max="50" step="1" />
+        </label>
+        <label>Sun exposure <span id="sunValue"></span>
+          <input id="sun" type="range" min="0" max="10" step="1" />
+        </label>
+      </section>
+
+      <section class="card">
+        <h2>Shirt A</h2>
+        <label>Material
+          <select id="materialA"></select>
+        </label>
+        <label>Fit
+          <select id="fitA"></select>
+        </label>
+        <label>Perforation
+          <select id="patternA"></select>
+        </label>
+      </section>
+
+      <section class="card">
+        <h2>Shirt B</h2>
+        <label>Material
+          <select id="materialB"></select>
+        </label>
+        <label>Fit
+          <select id="fitB"></select>
+        </label>
+        <label>Perforation
+          <select id="patternB"></select>
+        </label>
+      </section>
+    </aside>
+
+    <section class="results-panel">
+      <section class="card scorecard">
+        <h2>Result</h2>
+        <div class="score-grid">
+          <div><span>Winner</span><strong id="winner">—</strong></div>
+          <div><span>Cooling gap</span><strong id="coolingGap">—</strong></div>
+          <div><span>Claim check</span><strong id="claimCheck">—</strong></div>
+          <div><span>Value view</span><strong id="valueView">—</strong></div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Zone comparison</h2>
+        <div id="zoneTable" class="table"></div>
+      </section>
+
+      <section class="card">
+        <h2>Physics readout</h2>
+        <div id="physicsReadout" class="readout"></div>
+      </section>
+
+      <section class="card">
+        <h2>Interpretation</h2>
+        <p id="interpretation">Run a simulation to compare cooling, moisture and airflow trade-offs.</p>
+      </section>
+    </section>
+  </main>
+
+  <footer>
+    <span>Static GitHub Pages prototype. Not medical or engineering-certified CFD.</span>
+    <a href="./docs/PRODUCT_SPEC.md">Product spec</a>
+    <a href="./docs/SIMULATION_MODEL.md">Simulation model</a>
+  </footer>
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>
