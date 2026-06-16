@@ -44,3 +44,45 @@ This build includes Surface Cell Engine v1. Each shirt is split into 864 3D surf
 ## Pass 3 upgrade
 
 This build includes the repository refactor pass. The simulator is now organised into module folders so future upgrades can target one folder at a time instead of regenerating the whole app. See `docs/PASS_3_REPO_REFACTOR.md` and `docs/ARCHITECTURE.md`.
+
+## Pass 4 update
+
+Pass 4 adds the Perforation Engine v1: hole geometry, edge finish, pattern families, cell-level open-area generation, placement efficiency, fragility, clog-risk and DIY-replicability metrics. See `docs/PASS_4_PERFORATION_ENGINE.md`.
+
+## Pass 5 update
+
+Pass 5 adds Simulation Engine v1. The heuristic model is now split into separate airflow, moisture, thermal flux and comfort modules. It reports convection, evaporation, conduction, microclimate temperature, drying half-life and stagnant pocket risk. See `docs/PASS_5_SIMULATION_ENGINE.md`.
+
+## Pass 6 — Scene Engine
+
+This version upgrades the `/src/scene` layer with modular scene primitives, centralised colour maps, camera presets, animated airflow particles, deterministic cell-based perforation markers, a comfort visual mode and a small Shirt B comparison ghost.
+
+The app remains a static GitHub Pages build: no `node_modules`, no bundler and no build step.
+
+
+## Pass 8 update
+
+Pass 8 adds the comparison engine:
+
+- Shirt A vs Shirt B vs Shirt C
+- Scenario presets
+- Overall decision ranking
+- Cooling / sweat / safety / value score breakdown
+- Trade-off cards
+- MothTech-style claim check
+- Context-aware interpretation text
+
+The app remains a static GitHub Pages project with no `node_modules` and no build step.
+
+
+## Pass 8 validation engine
+
+This build adds practical field-test logging and calibration hooks. Use the Validation Test panel to record real run tests, wet shirt weight, drying time and subjective comfort. The app stores up to 50 local records in browser storage and can export them as JSON for future analysis.
+
+New module:
+
+```text
+src/validation/
+```
+
+Main document: `docs/PASS_8_VALIDATION_ENGINE.md`.
